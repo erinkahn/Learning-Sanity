@@ -1,9 +1,12 @@
 import {defineField, defineType} from 'sanity'
+import {PinIcon} from '@sanity/icons'
+
 
 export default defineType({
-  name: 'author',
-  title: 'Author',
+  name: 'location',
+  title: 'Locations',
   type: 'document',
+  icon: PinIcon,
   fields: [
     defineField({
       name: 'name',
@@ -18,6 +21,7 @@ export default defineType({
         source: 'name',
         maxLength: 96,
       },
+      hidden: ({document}) => !document?.name,
     }),
     defineField({
       name: 'image',
@@ -28,8 +32,13 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'bio',
-      title: 'Bio',
+      name: 'address',
+      title: 'Address',
+      type: 'string',
+    }),
+    defineField({
+      name: 'directions',
+      title: 'Directions',
       type: 'array',
       of: [
         {
@@ -45,6 +54,7 @@ export default defineType({
     select: {
       title: 'name',
       media: 'image',
+      address: 'address',
     },
   },
 })

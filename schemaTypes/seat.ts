@@ -1,9 +1,11 @@
 import {defineField, defineType} from 'sanity'
 
+
 export default defineType({
-  name: 'category',
-  title: 'Category',
+  name: 'seat',
+  title: 'Seats',
   type: 'document',
+
   fields: [
     defineField({
       name: 'title',
@@ -16,4 +18,10 @@ export default defineType({
       type: 'text',
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      description: 'description',
+    },
+  },
 })
