@@ -1,12 +1,9 @@
 import {defineField, defineType} from 'sanity'
-import {PinIcon} from '@sanity/icons'
-
 
 export default defineType({
   name: 'location',
   title: 'Locations',
   type: 'document',
-  icon: PinIcon,
   fields: [
     defineField({
       name: 'name',

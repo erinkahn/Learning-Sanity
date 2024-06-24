@@ -1,11 +1,10 @@
 import { defineField, defineType } from "sanity";
-import {BoltIcon} from '@sanity/icons'
+import DoorsOpenInput from "./components/DoorsOpenInput";
 
 export const show = defineType({
    name: 'show',
    title: 'Show',
    type: 'document',
-   icon: BoltIcon,
    groups: [
       {name: 'info', title: 'Information'},
       {name: 'tickets', title: 'Tickets'},
@@ -16,7 +15,6 @@ export const show = defineType({
          title: 'Artist',
          type: 'string',
          group: 'info',
-         
       }),
       defineField({
          name: 'slug',
@@ -53,6 +51,16 @@ export const show = defineType({
          title: 'Date',
          type: 'datetime',
          group: 'info',
+      }),
+      defineField({
+         name: 'doorsOpen',
+         description: 'When the doors open before the show starts',
+         type: 'number',
+         initialValue: 60,
+         group: 'info',
+         components: {
+            input: DoorsOpenInput,
+         },
       }),
       defineField({
          name: 'image',
